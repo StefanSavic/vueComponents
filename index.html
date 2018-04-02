@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vueJsWebComponents</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="steps">
+		<div class="steps plan">
+			<div class="steps__logo plan__logo">
+					<img src="{{src.plan}}" alt="">
+			</div>
+			<steps-heading class="plan__heading" :heading="planHeading"></steps-heading>
+			<steps-content :contentlist="plan" ></steps-content>
+		</div>
+		<div class="steps design">
+			<div class="steps__logo">
+				<img src="{{src.design}}" alt="">
+			</div>
+			<steps-heading :heading="designHeading"></steps-heading>
+			<steps-content :contentlist="design" ></steps-content>
+		</div>
+		<div class="steps develop">
+			<div class="steps__logo">
+				<img src="{{src.develop}}" alt="">
+			</div>
+			<steps-heading :heading="developHeading"></steps-heading>
+			<steps-content :contentlist="develop" ></steps-content>
+		</div>
+		<div class="steps deploy">
+			<div class="steps__logo">
+				<img src="{{src.deploy}}" alt="">
+			</div>
+			<steps-heading :heading="deployHeading"></steps-heading>
+			<steps-content :contentlist="deploy" ></steps-content>
+		</div>
+	</div>
+
+
+	<template id="steps-heading-template">
+		<div class="steps__heading">
+			<span class="steps__heading__arrow">
+				<i class="fa fa-chevron-right" aria-hidden="true"></i>
+			</span>
+			<h2 class="steps__heading__title" v-for="head in heading">{{head}}</h2>
+		</div>
+	</template>
+	<template id="steps-content-template">
+	<div class="steps__contetnt__list__wrap">
+		<ul class="steps__content__list">
+			<li v-for="content in contentlist">{{content.text}}</li>
+		</ul>
+	</div>
+	</template>
+	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script> -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
